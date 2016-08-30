@@ -92,7 +92,7 @@ class Textures(object):
     def generate(self):
         
         # generate biome grass mask
-        self.biome_grass_texture = self.build_block(self.load_image_texture("assets/minecraft/textures/blocks/grass_top.png"), self.load_image_texture("assets/minecraft/textures/blocks/grass_side_overlay.png"))
+        self.biome_grass_texture = self.build_block(self.load_image_texture("assets/minecraft/textures/blocks/Grass_hues.png"), self.load_image_texture("assets/minecraft/textures/blocks/lava.png"))
         
         # generate the blocks
         global blockmap_generators
@@ -2186,7 +2186,7 @@ def crafting_table(self, blockid, data):
     side3 = self.load_image_texture("assets/minecraft/textures/blocks/crafting_table_side.png")
     side4 = self.load_image_texture("assets/minecraft/textures/blocks/crafting_table_front.png")
     
-    img = self.build_full_block(top, None, None, side3, side4, None)
+    img = self.build_full_block(None, None, top, side3, None, side4)
     return img
 
 # crops with 8 data values (like wheat)
@@ -2500,7 +2500,7 @@ def wall_sign(self, blockid, data): # wall sign
     if data in (3,4):
         for i in range(15):
             x = randint(4,11)
-            y = randint(3,7)
+            y = randint(3,7) ????????????? :v
             texture.putpixel((x,y),(0,0,0,255))
     """
     
@@ -2989,7 +2989,7 @@ def pumpkin(self, blockid, data): # pumpkins, jack-o-lantern
     side = self.load_image_texture("assets/minecraft/textures/blocks/pumpkin_side.png")
 
     if data == 0: # pointing west
-        img = self.build_full_block(top, None, None, side, front)
+        img = self.build_full_block(top, None, side, None, front)
 
     elif data == 1: # pointing north
         img = self.build_full_block(top, None, None, front, side)
@@ -3188,7 +3188,7 @@ def repeater(self, blockid, data):
     if (data & 0x3) == 3: # pointing north
         top = top.rotate(90)
 
-    img = self.build_full_block( (top, increment), None, None, side, side)
+    img = self.build_full_block( (top, increment), None, side, None , side)
 
     # compose a "3d" redstone torch
     t = self.load_image_texture("assets/minecraft/textures/blocks/redstone_torch_off.png").copy() if blockid == 93 else self.load_image_texture("assets/minecraft/textures/blocks/redstone_torch_on.png").copy()
@@ -3393,14 +3393,14 @@ def trapdoor(self, blockid, data):
         if data & 0x3 == 1: # east
             img = self.build_full_block(None, texture, None, None, None)
         if data & 0x3 == 2: # south
-            img = self.build_full_block(None, None, texture, None, None)
+            img = self.build_full_block(None, texture, None , None, None)
         if data & 0x3 == 3: # north
             img = self.build_full_block(None, None, None, texture, None)
         
     elif data & 0x4 == 0: # closed trapdoor
         if data & 0x8 == 0x8: # is a top trapdoor
             img = Image.new("RGBA", (24,24), self.bgcolor)
-            t = self.build_full_block((texture, 12), None, None, texture, texture)
+            t = self.build_full_block((texture, 12), None, texture, None  , texture)
             alpha_over(img, t, (0,-9),t)
         else: # is a bottom trapdoor
             img = self.build_full_block((texture, 12), None, None, texture, texture)

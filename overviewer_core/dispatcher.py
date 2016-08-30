@@ -289,7 +289,7 @@ class MultiprocessingDispatcher(Dispatcher):
 
         # create and fill the pool
         self.pool = []
-        for i in xrange(self.local_procs):
+        for x in xrange(self.local_procs):
             proc = MultiprocessingDispatcherProcess(self.manager)
             proc.start()
             self.pool.append(proc)
