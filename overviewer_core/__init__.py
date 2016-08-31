@@ -44,9 +44,7 @@ def check_c_overviewer():
     # make sure it's up-to-date
     #
 
-    if hasattr(sys, "frozen"):
-        pass # we don't bother with a compat test since it should always be in sync
-    elif "extension_version" in dir(c_overviewer):
+    if "extension_version" in dir(c_overviewer):
         # check to make sure the binary matches the headers
         if os.path.exists(os.path.join(root_dir, "overviewer_core", "src", "overviewer.h")):
             with open(os.path.join(root_dir, "overviewer_core", "src", "overviewer.h")) as f:

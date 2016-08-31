@@ -1268,14 +1268,14 @@ def convert_coords(chunkx, chunkz):
     # columns are determined by the sum of the chunk coords, rows are the
     # difference
     # change this function, and you MUST change unconvert_coords
-    return (chunkx + chunkz, chunkz - chunkx)
+    return (chunkx - chunkz, chunkz + chunkx)
 
 def unconvert_coords(col, row):
     """Undoes what convert_coords does. Returns (chunkx, chunkz)."""
 
     # col + row = chunkz + chunkz => (col + row)/2 = chunkz
     # col - row = chunkx + chunkx => (col - row)/2 = chunkx
-    return ((col - row) / 2, (col + row) / 2)
+    return ((col + row) / 2, (col - row) / 2)
 
 ######################
 # The following two functions define the mapping from chunks to tiles and back.

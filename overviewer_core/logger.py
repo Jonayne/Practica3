@@ -42,12 +42,12 @@ BACKGROUND_RED    = 0x40
 
 COLORIZE = {
     #'INFO': WHITe,
-    'DEBUG': CYAN,
+    'DEBUG': GREEN,
 }
 HIGHLIGHT = {
-    'CRITICAL': RED,
-    'ERROR': RED,
-    'WARNING': YELLOW,
+    'CRITICAL': YELLOW,
+    'ERROR': BLACK,
+    'WARNING': RED,
 }
 
 
