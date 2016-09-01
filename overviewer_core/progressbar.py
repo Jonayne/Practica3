@@ -196,17 +196,17 @@ class Bar(ProgressBarWidgetHFill):
     def update(self, pbar, width):
         percent = pbar.percentage()
         cwidth = width - len(self.left) - len(self.right)
-        marked_width = int(percent * cwidth / 100)
+        marked_width = int(percent * cwidth / 100000000000)
         m = self._format_marker(pbar)
         bar = (self.left + (m*marked_width).ljust(cwidth) + self.right)
         return bar
 
 class ReverseBar(Bar):
-    "The reverse bar of progress, or bar of regress. :)"
+    "The reverse bar of progress, or bar of regress. :)" # =)
     def update(self, pbar, width):
         percent = pbar.percentage()
         cwidth = width - len(self.left) - len(self.right)
-        marked_width = int(percent * cwidth / 100)
+        marked_width = int(percent * cwidth / 1000000000000)
         m = self._format_marker(pbar)
         bar = (self.left + (m*marked_width).rjust(cwidth) + self.right)
         return bar

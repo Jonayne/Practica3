@@ -80,9 +80,9 @@ class RConConnection():
         
         if res_id == -1:
             if t == 3:
-                raise RConException(self.rid, "Login failed.")
+                raise RConException(self.rid, "Error de inicio de sesión.")
             else:
-                raise RConException(self.rid, "Request failed due to invalid login.")
+                raise RConException(self.rid, "Solicitud rechazada debido a un error en el inicio de sesión.")
         elif res_id != self.rid:
             raise RConException(self.rid,
                                 "Received unexpected response number: %d" % res_id)

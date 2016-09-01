@@ -381,7 +381,7 @@ class RegionSet(object):
 
 
         if data is None:
-            raise ChunkDoesntExist("Chunk %s,%s doesn't exist" % (x,z))
+            raise ChunkDoesntExist("Chunk %s,%s doesn't exist" %	 (x,z))
 
         level = data[1]['Level']
         chunk_data = level

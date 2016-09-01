@@ -43,7 +43,7 @@
 # available during the execution of the config file. This way, container types
 # can be initialized and then appended/added to when the config file is parsed.
 
-from settingsValidators import *
+import settingsValidators 
 import util
 from observer import ProgressBarObserver, LoggingObserver, JSObserver
 from optimizeimages import pngnq, optipng, pngcrush

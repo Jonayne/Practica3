@@ -49,7 +49,7 @@ def replaceBads(s):
 # If you want to keep your stomach contents do not, under any circumstance,
 # read the body of the following function. You have been warned.
 # All of this could be replaced by a simple json.loads if Mojang had
-# introduced a TAG_JSON, but they didn't.
+# introduced a TAG_JSON, but they didn't. (Mojang please...)
 #
 # So here are a few curiosities how 1.7 signs get seen in 1.8 in Minecraft:
 # - null        ->
@@ -129,10 +129,10 @@ def parseBucketChunks((bucket, rset, filters)):
             logging.warning("Ignoring POIs in corrupt chunk %d,%d", b[0], b[1])
 
         # Perhaps only on verbose ?
-        i = i + 1
+        i += 1
         if i == 250:
             i = 0
-            cnt = 250 + cnt
+            cnt += 250
             logging.info("Found %d markers in thread %d so far at %d chunks", sum(len(v) for v in markers.itervalues()), pid, cnt);
 
     return markers
@@ -166,7 +166,7 @@ def handleEntities(rset, config, config_path, filters, markers):
             try:
                 data = rset.get_chunk(x, z)
                 for poi in itertools.chain(data['TileEntities'], data['Entities']):
-                    if poi['id'] == 'Sign': # kill me
+                    if poi['id'] == 'Sign': # kill me (same here)
                         poi = signWrangler(poi)
                     for name, __, filter_function, __, __, __ in filters:
                         result = filter_function(poi)

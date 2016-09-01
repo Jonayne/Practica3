@@ -397,7 +397,7 @@ def _get_closest_match(s, keys):
     """
     # Adjust this. 3 is probably a good number, it's probably not a typo if the
     # distance is >3
-    threshold = 3
+    threshold = 5
 
     minmatch = None
     mindist = threshold+1

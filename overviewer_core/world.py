@@ -207,7 +207,7 @@ class World(object):
             return (spawnX, spawnY, spawnZ)
     
         def getBlock(y):
-            "This is stupid and slow but I don't care"
+            "This is stupid and slow but I don't care" #LOL I know that feel bro.
             targetSection = spawnY//16
             for section in chunk['Sections']:
                 if section['Y'] == targetSection:
